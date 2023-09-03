@@ -39,16 +39,13 @@ public class NhnMartShell {
         Scanner scanner = new Scanner(System.in);
         System.out.print(">");
 
-        String name = scanner.next();
-        int itemAmout = Integer.parseInt(scanner.next());
-        buyList.add(new BuyList.Item(name, itemAmout));
-//        String name1 = scanner.next();
-//        int itemAmout1 = Integer.parseInt(scanner.next());
-//        buyList.add(new BuyList.Item(name1, itemAmout1));
-//        String name2 = scanner.next();
-//        int itemAmout2 = Integer.parseInt(scanner.next());
-//        buyList.add(new BuyList.Item(name2, itemAmout2));
+        String str = scanner.nextLine();
 
+        String[] itemName = str.split(" ");
+
+        for (int i = 0; i < itemName.length; i += 2) {
+            buyList.add(new BuyList.Item(itemName[i], Integer.parseInt(itemName[i + 1])));
+        }
         scanner.close();
         return buyList;
     }

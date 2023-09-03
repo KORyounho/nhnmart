@@ -1,6 +1,11 @@
 package com.nhnacademy.mart;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class NhnMart {
+
+    private static final Logger logger = LoggerFactory.getLogger(NhnMart.class);
 
     public static int ONION_PRICE = 1_000;
     public static int EGG_PRICE = 5_000;
@@ -26,6 +31,10 @@ public class NhnMart {
         for (int i = 0; i < 20; i++) {
             foodStand.add(new Food("사과", 2_000));
         }
+        for (Food food : foodStand.getFoods()) {
+            logger.info("진열된 상품 : {}", food.getName());
+        }
+
     }
 
 
